@@ -1,0 +1,40 @@
+page{
+  background-color: #fff
+}
+.s-w{
+  width: 320rpx;
+}
+.s-item{
+  margin-bottom: 30rpx;
+  background: #fff;
+  box-shadow: 0px 2px 4px 0px 
+		rgba(0, 0, 0, 0.09);
+}
+.h-56{
+  height: 56rpx
+}
+.img1{
+  width: 320rpx;
+  height: 320rpx;
+  display: block;
+}
+.img2{
+  width: 320rpx;
+  height: 240rpx;
+  display: block;
+}
+.avatar{
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 48rpx
+}
+.rec{
+  width: 88rpx;
+	height: 36rpx;
+	background-color: #cf6325;
+	border-radius: 22px;
+}
+.rec image{
+  width: 20rpx;
+  height: 20rpx
+}

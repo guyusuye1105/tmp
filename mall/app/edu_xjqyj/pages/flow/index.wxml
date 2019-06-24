@@ -1,0 +1,74 @@
+<view class="top-line"></view>
+<view class='top-bar panel-between'>
+  <view class='w-3333 text-center' wx:for="{{navBar}}" wx:key="{{index}}" data-index='{{index}}' bindtap='changeTag'>
+    <view class='fo-28 lh-80 {{index == navBarIndex?"fo-to":""}}'>{{item.label}}</view>
+    <view class='{{index == navBarIndex?"active-line":""}}'></view>
+  </view>
+</view>
+<view style='height:120rpx'></view>
+
+<view class='pa-th'>
+  <view class='yy-item ma-b30' wx:for="{{list}}">
+    <view class='panel-between item-center pa-th border-bd'>
+      <view class='panel-start item-center ma-t10 ma-b10'>
+        <image src='/images/dt.png' class='icon-30'></image>
+        <view class='fo-28 ma-10'>{{item.order.order_no}} </view>
+      </view>
+      <view class='fo-30 fo-to'>{{item.state == 'nouse'? '未消费':''}}{{item.state == 'ing'? '预约中':''}}{{item.state == 'comment'? '待评价':''}}{{item.state == 'end'? '已结束':''}}</view>
+    </view>
+    <view style='height:20rpx' class='panel-between'>
+      <view class='cri'></view>
+      <view class='cri'></view>
+    </view>
+    <view class='panel-between pa-th' style='padding-bottom:30rpx'>
+      <image src='{{item.goods.image[0].file_path}}' mode='aspecFill' class='iohs'></image>
+      <view class='sada'>
+        <view>
+          <view class='text-right bold fo-28'>{{item.goods.goods_name}}</view>
+          <view class='text-right fo-24 fo-g ma-t10' wx:if="{{item.state=='nouse'}}">有效期截止：{{item.subject.subject_endtime_format}}</view>
+          <view class='text-right fo-24 fo-g ma-t10' wx:if="{{item.state=='ing' || item.state=='end'|| item.state=='comment' }}">预约上课时间：{{item.day}}</view>
+          
+          <view class='panel-end ma-t10'>
+            <view wx:if="{{item.state !='nouse' && item.state != 'comment' && item.state != 'end'}}" class='buybtn{{item.state == "ing"?"":"2"}} ma-r20' data-index='{{index}}' bindtap='doId'>我的卡券</view>
+            <view wx:if="{{item.state == 'comment'}}" class='buybtn' data-id='{{item.order_id}}' data-gid='{{item.goods_id}}' data-tea='{{item.teacher_id}}' bindtap='docomment'>立即评价</view>
+            <view wx:if="{{item.state == 'end'}}" class='buybtn2' data-id='{{item.order_id}}' data-gid='{{item.goods_id}}' data-tea='{{item.teacher_id}}' bindtap='seecomment'>查看评价</view>
+            <view wx:if="{{item.state != 'end' && item.state != 'comment'}}" class='buybtn{{item.state == "nouse"?"":"2"}}' data-state='{{item.state}}' data-id='{{item.appoint_id}}' bindtap='{{item.state=="nouse"?"dopointer":"cancelpo"}}'>{{item.state == "nouse"?"立即预约":"取消预约"}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<image src='/images/bot-bg.png' mode='aspectFill' class='asdddd' style='width:100%;height:182rpx'></image>
+
+<view class='fikl' wx:if="{{show}}">
+  <view class='kllkl'>
+    <view class='panel-between item-center ma-t30'>
+      <view class='w-3333'></view>
+      <view class='w-3333 fo-30 text-center'>卡券信息</view>
+      <view class='w-3333 panel-end'>
+        <image src='/images/icon/clo.png' class='icon-25 ma-r30' bindtap='clse'></image>
+      </view>
+    </view>
+    <view class='text-center ma-t30'>
+      券号：{{list[flag].order.sn_code}}
+    </view>
+    <view class='bg-g pa-30 ma-t30' style='border-radius:0 0 8rpx 8rpx'>
+      <view class='panel-between'>
+        <view class='fo-28'>预约课程:</view>
+        <view class='fo-28'>{{list[flag].goods.goods_name}}</view>
+      </view>
+      <view class='panel-between ma-t20'>
+        <view class='fo-28'>预约门店:</view>
+        <view class='fo-28'>{{list[flag].store.store_name}}</view>
+      </view>
+      <view class='panel-between ma-t20'>
+        <view class='fo-28'>预约上课时间:</view>
+        <view class='fo-28 text-right'>
+          <view >{{list[flag].day}}</view>
+          <view >{{list[flag].subjecttime.time1+':'+list[flag].subjecttime.time2+'~'+list[flag].subjecttime.time3+':'+list[flag].subjecttime.time4}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,70 @@
+.themeBar{
+  background-color: #e5bf3b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12rpx
+}
+.themePanel{
+  padding: 10rpx 0;
+  border: 4rpx solid #ffffff;
+  border-radius: 8rpx;
+  justify-content: center;
+  align-items: center;
+  width: 100%
+}
+.search-bar{
+  height: 88rpx;
+  /* padding: 0 12rpx; */
+  display: flex;
+  align-items: center
+}
+.search-panel{
+  height: 60rpx;
+  border: 2rpx solid #000;
+  border-radius: 8rpx;
+  width: 100%;
+}
+
+.sh-item{
+  width: 320rpx;
+  margin-bottom: 30rpx;
+  border: 1rpx solid #f1f1f1;
+  background-color: #f1f1f1;
+  padding-bottom: 20rpx
+}
+.sh-item-img{
+  width: 320rpx;
+  height: 320rpx;
+  display: block;
+  
+}
+.dot{
+  width: 18rpx;
+  height: 18rpx;
+  border-radius: 18rpx;
+  margin-left: 20rpx;
+}
+.dot:first-child{
+  margin-left: 0
+}
+.dot-act{
+  background-color: #000000
+}
+.dot-def{
+  background-color: rgba(0, 0, 0, 0.3)
+}
+.icon-t{
+  width: 64rpx;
+  height: 64rpx
+}
+.piu{
+  padding: 0 40rpx;
+  height: 160rpx
+}
+.sha-b{
+  box-shadow: 0px 4px 4px 0px 
+		rgba(0, 0, 0, 0.1), 
+		inset 0px -1px 0px 0px 
+		#e6e6e6;
+}

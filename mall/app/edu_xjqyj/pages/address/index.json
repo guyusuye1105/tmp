@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "报名资料",
+  "usingComponents": {
+    "shortcut": "/components/shortcut/shortcut"
+  }
+}

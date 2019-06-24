@@ -1,0 +1,32 @@
+/* pages/yy/yy.wxss */
+.itemsd{
+  width: 180rpx;
+  height: 72rpx;
+  font-size: 26rpx;
+  text-align: center;
+  line-height: 72rpx;
+}
+.item-def{
+  border: 1px solid #979797;
+  color: #979797
+}
+.item-act{
+  border: 1px solid #fe702e;
+  color: #fe702e
+}
+.fo-act{
+  color: #fe702e
+}
+.fo-def{
+  color: #979797
+}
+.fasdx{
+  width: 100%;
+  height: 100rpx;
+  background: #fe702e;
+  color: #fff;
+  text-align: center;
+  line-height: 100rpx;
+  position: fixed;
+  bottom: 0
+}

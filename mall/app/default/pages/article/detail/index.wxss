@@ -1,0 +1,11 @@
+page {
+  background: #fff;
+}
+
+.container {
+  padding: 30rpx;
+}
+
+.wxParse-img {
+  max-width: 100%;
+}

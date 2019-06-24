@@ -1,0 +1,82 @@
+<import src="../template/template.wxml" />
+<view class="top-line"></view>
+<view class="pa-40" style='padding-top:0'>
+  <!-- 轮播图 -->
+  <!-- <template is="swiper" data="{{imgUrls:imgUrls,height:280,current:current}}" /> -->
+  <view class='pa-tb40 fo-28 bold'> 创意美术游戏创作评价 </view>
+
+  <view class='panel-between wrap'>
+    <block wx:for="{{whiteNum}}" wx:key="{{index}}">
+      <view class='s-w' >
+        <view class='s-item' wx:if="{{list[4*index]}}" data-index='{{4*index}}' bindtap='navTo'>
+          <image class='img1' src='{{list[4*index].image[0].file_path}}' mode='aspectFill'></image>
+          <view class='pa-20'>
+            <view class='fo-20 ell-2 h-56'>{{list[4*index].content}}</view>
+            <view class='panel-between item-center ma-t20'>
+              <view class='panel-start item-center'>
+                <image src='{{list[4*index].user.avatarUrl}}' class='avatar'></image>
+                <view class=' ell fo-20 ma-l10' style='width:100rpx'>{{list[4*index].user.nickName}}</view>
+              </view>
+              <view class='rec panel-center item-center'>
+                <image src='/images/icon/z2.png'></image>
+                <view class='fo-w fo-20 ell text-center' style='width:50rpx'> 545</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='s-item' wx:if="{{list[4*index+2]}}" data-index='{{4*index+2}}' bindtap='navTo'>
+          <image class='img2' src='{{list[4*index+2].image[0].file_path}}' mode='aspectFill'></image>
+          <view class='pa-20'>
+            <view class='fo-20 ell-2 h-56'>{{list[4*index+2].content}}</view>
+            <view class='panel-between item-center ma-t20'>
+              <view class='panel-start item-center'>
+                <image src='{{list[4*index+2].user.avatarUrl}}' class='avatar'></image>
+                <view class=' ell fo-20 ma-l10' style='width:100rpx'>{{list[4*index+2].user.nickName}}</view>
+              </view>
+              <view class='rec panel-center item-center'>
+                <image src='/images/icon/z2.png'></image>
+                <view class='fo-w fo-20 ell text-center' style='width:50rpx'> 545</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='s-w'>
+        <view class='s-item' wx:if="{{list[4*index+1]}}" data-index='{{4*index+1}}' bindtap='navTo'>
+          <image class='img2' src='{{list[4*index+1].image[0].file_path}}' mode='aspectFill'></image>
+          <view class='pa-20'>
+            <view class='fo-20 ell-2 h-56'>{{list[4*index+1].content}}</view>
+            <view class='panel-between item-center ma-t20'>
+              <view class='panel-start item-center'>
+                <image src='{{list[4*index+1].user.avatarUrl}}' class='avatar'></image>
+                <view class=' ell fo-20 ma-l10' style='width:100rpx'>{{list[4*index+1].user.nickName}}</view>
+              </view>
+              <view class='rec panel-center item-center'>
+                <image src='/images/icon/z2.png'></image>
+                <view class='fo-w fo-20 ell text-center' style='width:50rpx'> 545</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='s-item' wx:if="{{list[4*index+3]}}" data-index='{{4*index+3}}' bindtap='navTo'>
+          <image class='img1' src='{{list[4*index+3].image[0].file_path}}' mode='aspectFill'></image>
+          <view class='pa-20'>
+            <view class='fo-20 ell-2 h-56'>{{list[4*index+3].content}}</view>
+            <view class='panel-between item-center ma-t20'>
+              <view class='panel-start item-center'>
+                <image src='{{list[4*index+3].user.avatarUrl}}' class='avatar'></image>
+                <view class=' ell fo-20 ma-l10' style='width:100rpx'>{{list[4*index+3].user.nickName}}</view>
+              </view>
+              <view class='rec panel-center item-center'>
+                <image src='/images/icon/z2.png'></image>
+                <view class='fo-w fo-20 ell text-center' style='width:50rpx'> 545</view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+      </view>
+    </block>
+  </view>
+
+</view>

@@ -1,0 +1,7 @@
+{
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "diy-component": "/components/diy/index",
+    "wux-refresher": "../../we7/custom_refresh/refresher/index"
+  }
+}

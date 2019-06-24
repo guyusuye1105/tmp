@@ -1,0 +1,34 @@
+<!-- 商品组 -->
+<view class="diy-sharingGoods" style="background: {{ itemStyle.background }};">
+  <view class="goods-list">
+    <scroll-view scroll-x="{{ itemStyle.display === 'slide' ? true : false }}">
+      <view class="goods-item" wx:for="{{ dataList }}" wx:key="this" wx:for-item="dataItem">
+        <navigator class='sharingGoods' hover-class="none" url="{{ dataItem.goods_id > 0 ? '/pages/sharing/goods/index?goods_id=' + dataItem.goods_id : '' }}">
+          <view class="sharingGoods_left">
+            <image mode="aspectFill" src="{{ dataItem.image }}"></image>
+          </view>
+          <view class="sharingGoods_right">
+            <view wx:if="{{ itemStyle.show.goodsName > 0 }}" class="twolist-hidden ">
+              <text class='sharingGoods_title'>{{ dataItem.goods_name }}</text>
+            </view>
+            <view class='sharingGoods_desc'>
+              <view class="">
+                <text class="desc_introduction onelist-hidden">{{ dataItem.selling_point }}</text>
+              </view>
+              <text class="desc_situation">
+                <text class="iconfont icon-pintuan_huaban"></text>
+                <text class="people">{{ dataItem.people }}人团</text>
+                <text class="cl-9">已有{{ dataItem.goods_sales }}人进行拼团</text>
+              </text>
+              <text wx:if="{{ itemStyle.show.goodsPrice > 0 }}" class="desc_footer">
+                <text  class="price_x">¥{{dataItem.sharing_price}}</text>
+                <text class="price_y cl-9">¥{{dataItem.goods_price}}</text>
+              </text>
+            </view>
+          <button class="settlement">去拼团</button>
+          </view>
+        </navigator>
+      </view>
+    </scroll-view>
+  </view>
+</view>

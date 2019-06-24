@@ -1,0 +1,31 @@
+<import src="../template/template.wxml" />
+
+<view class="top-line"></view>
+<view class='pa-40' style='padding-bottom:0'>
+<!-- 积分商城 -->
+  <template is="themeTitle" data="{{title:'热门排行榜',des:'',page:''}}" />
+  <!-- showTitle 热门排行榜商品  -->
+  <template is="showTitle" data="{{title:'热门排行榜商品',des:'推荐更好商品',ma:true}}" />
+</view>
+
+<view class='poj' >
+  <view class='poj border-ff' data-path='/pages/goods/index' data-names='goods_id' data-goods_id='{{slist[0].goods_id}}' bindtap='navTo'>
+    <view class='cw'>榜单C位冠军</view>
+    <image src='{{slist[0].image[0].file_path}}' mode='aspectFill' class='cimg'></image>
+    <view class='ma-t30 ma-b30'>
+      <view class='text-center fo-28'>{{slist[0].goods_name}}</view>
+      <view class='text-center fo-24 fo-g ma-t10'>{{slist[0].selling_point}}</view>
+      <view class='text-center fo-30 fo-g ma-t10'>￥{{slist[0].goods_min_price}}</view>
+      <view  class='text-center fo-28 bold ma-t10'>月销量：{{slist[0].goods_sales}}件</view>
+    </view>
+  </view>
+</view>
+
+<view class='poj' style='margin:80rpx 0'>
+  <view class='poj border-ff'>
+    <view class='cw '>TOP 10</view>
+    <view style="height:30rpx"></view>
+    <!-- 商品列表 -->
+    <template is="shopList" data="{{list:slist,pa:'none'}}" />
+  </view>
+</view>

@@ -1,0 +1,108 @@
+<view class="container b-f" wx:if="{{ is_dealer && isData }}">
+
+  <!-- 头部背景图 -->
+  <view class="dealer-bg" style='height:452rpx;'>
+    <image mode="aspectFill" style='height:452rpx;width:750rpx' src="/images/icon/bg.png"></image>
+    <view class='pa-30' style='height:250rpx;position:relative;top:-452rpx'>
+      <view class='panel-between item-center'>
+        <view class='panel-start item-center'>
+          <view class="user-avatar">
+            <image src="{{ user.avatarUrl }}"></image>
+          </view>
+          <view class='fo-30 unik'>{{ user.nickName }}</view>
+        </view>
+        <view class='tixian' bindtap="navigationToWithdraw">提现</view>
+      </view>
+
+      <view class='text-center' style='margin-top:60rpx'>
+        <view class='fo-w fo-30'>可提金额</view>
+        <view class='fo-w ma-t10' style='font-size:60rpx'>￥{{ dealer.money }}</view>
+      </view>
+      <view class='panel ra-10 panel-around item-center' style='margin-top:60rpx'>
+        <view class='bhk ' width="300rpx">
+          <view class='fo-28'>累计收入</view>
+          <view class='fo-30 fo-b7'>￥{{dealer.total_money}}</view>
+
+          <view class='fo-28 ma-t30'>累计成单</view>
+          <view class='fo-30 fo-b7'>{{totalg2}}单</view>
+        </view>
+        <view class='bh2'></view>
+        <view class='bhk' width="300rpx">
+          <view class='fo-28'>预计收入</view>
+          <view class='fo-30 fo-b7'>￥{{dealer.freeze_money}}</view>
+
+          <view class='fo-28 ma-t30'>预计成单</view>
+          <view class='fo-30 fo-b7'>{{totalg}}单</view>
+        </view>
+      </view>
+      <view class='bg-w ra-10 ma-t30 panel-around'>
+        <navigator class='ddd' url="../order/order">
+          <image src='/images/icon/sr.png' style='margin:auto;height:40rpx;width:40rpx'></image>
+          <view class='fo-30 ma-t10'>收入明细</view>
+        </navigator>
+        <navigator class='ddd' url="../team/team">
+          <image src='/images/icon/team.png' style='margin:auto;height:40rpx;width:40rpx'></image>
+          <view class='fo-30  ma-t10 text-center'>我的团队</view>
+        </navigator>
+        <view class='ddd' bindtap='getPoster'>
+          <image src='/images/icon/qr.png' style='margin:auto;height:40rpx;width:40rpx'></image>
+          <view class='fo-30  ma-t10'>二维码</view>
+        </view>
+      </view>
+
+    </view>
+    <view class=''>
+      <view class='fo-30 pa-30'>预计入账订单</view>
+      <view class='bg-w pa-30 border-b' wx:for="{{userg}}">
+        <view class='panel-between'>
+          <view class='fo-30'>订单编号：{{item.order_master.order_no}}</view>
+          <view class='fo-wc fo-30'>{{item.order_master.state_text}}</view>
+        </view>
+        <view class='panel-between item-center ma-t30'>
+          <view class='panel-start item-center '>
+            <image src='{{user.avatarUrl }}' style="width:100rpx;height:100rpx;border-radius:50rpx"></image>
+            <view class='ma-l20'>
+              <view class='fo-30'>{{item.user.nickName}}</view>
+              <view class='fo-30 fo-g'>消费金额：¥{{item.order_master.total_price}}</view>
+            </view>
+          </view>
+          <view>
+            <view class='text-right bold fo-30 fo-b7'>+<text class="f-28" wx:if="{{ item.first_user_id == user.user_id }}">{{ item.first_money }}</text>
+              <text class="f-28" wx:if="{{ item.second_user_id == user.user_id }}">{{ item.second_money }}</text>
+              <text class="f-28" wx:if="{{ item.third_user_id == user.user_id }}">{{ item.third_money }}</text></view>
+            <view class='fo-24'>{{item.create_time}}</view>
+          </view>
+        </view>
+      </view>
+      
+    </view>
+  </view>
+</view>
+
+<!-- 当前不是分销商 -->
+<view class="container b-f" wx:if="{{ !is_dealer && isData }}">
+  <view class="no-dealer">
+    <view class="no-icon dis-flex flex-x-center">
+      <image src="/images/not-dealer.png"></image>
+    </view>
+    <view class="no-msg dis-flex flex-x-center f-30" style="">{{ words.index.words.not_dealer.value }}</view>
+    <!-- 立即申请 -->
+    <view class="no-submit form-submit dis-flex flex-x-center">
+      <form bindsubmit="triggerApply" report-submit="true">
+        <button formType="submit">{{ words.index.words.apply_now.value }}</button>
+      </form>
+    </view>
+  </view>
+</view>
+<view class='fyop' wx:if="{{showQr}}">
+  <view>
+    <view class='panel-end ma-b10'>
+    <image src='/images/gb.png' class='icon-40' bindtap='closeQr'></image>
+    </view>
+    <image src='{{qrcode}}' style='width:630rpx;height:880rpx' class='ra-10' mode='aspectFill'></image>
+    <view class='panel-between ma-t30'>
+      <view class='bcbtn' bindtap='saveTup'>保存图片</view>
+      <button class='sharebtn' open-type='share'>分享给好友</button>
+    </view>
+  </view>
+</view>
