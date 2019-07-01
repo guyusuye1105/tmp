@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "课程详情",
-  "usingComponents": {
-    "zan-actionsheet": "/components/actionsheet/index",
-    "zan-popup": "/components/popup/index",
-    "shortcut": "/components/shortcut/shortcut"
-  }
-}
